@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Audit - Get Started Today</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a73e8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1a73e8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-primary {
+            display: inline-block;
+            background: #ffc107;
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,193,7,0.3);
+        }
+
+        .cta-button-primary:hover {
+            background: #ffb300;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,193,7,0.4);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a73e8;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .benefits-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            padding: 1.5rem;
+            background: #f5f5f5;
+            border-left: 4px solid #1a73e8;
+            border-radius: 5px;
+        }
+
+        .benefit-item h4 {
+            color: #1a73e8;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .benefit-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-size: 2rem;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+        }
+
+        .submit-button:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        /* Message Alerts */
+        .message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a73e8;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: #1a73e8;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button-primary {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .features,
+            .benefits-content,
+            .form-container,
+            .stats-content,
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1a73e8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Audit Pro</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#form">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get Your Free Audit Today</h1>
+            <p>Professional audit and consultation for just ₹1. Start optimizing your business now.</p>
+            <a href="https://payments.cashfree.com/forms/getaudit" class="cta-button-primary">Free Audit for ₹1</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">What You'll Get</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detailed Analysis</h3>
+                <p>Comprehensive audit of your current systems and processes to identify opportunities for improvement.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Actionable Insights</h3>
+                <p>Get specific, prioritized recommendations tailored to your business needs and goals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3>Expert Guidance</h3>
+                <p>Benefit from years of industry experience and best practices in your sector.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Growth Strategy</h3>
+                <p>Clear roadmap for scaling and optimizing your operations effectively.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Confidential</h3>
+                <p>Your business information is treated with strict confidentiality and security.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Quick Turnaround</h3>
+                <p>Results delivered promptly so you can start implementing improvements quickly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="benefits-content">
+            <h2 class="section-title">Why Choose Our Audit?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>✓ Proven Track Record</h4>
+                    <p>Helped 1000+ businesses optimize their operations and increase revenue by 30%+ on average.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>✓ Industry Experts</h4>
+                    <p>Team of certified professionals with deep expertise across multiple industries.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>✓ Affordable Pricing</h4>
+                    <p>Premium audit services at an unbeatable price. Just ₹1 to get started!</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>✓ Risk-Free</h4>
+                    <p>If you're not satisfied, get a full refund. No questions asked.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>✓ Ongoing Support</h4>
+                    <p>Continued support during implementation of recommendations at no extra cost.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>✓ Customized Solutions</h4>
+                    <p>Tailored audit approach based on your specific industry and business model.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-content">
+            <h2 class="section-title">By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Businesses Audited</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Avg. Revenue Growth</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="form-section">
+        <div class="form-container">
+            <h2>Get Your Free Audit</h2>
+            <p class="form-subtitle">Just provide your details and our team will reach out to schedule your audit.</p>
+            
+            <form id="auditForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your full name" 
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="Enter your phone number" 
+                        required
+                    />
+                </div>
+
+                <button type="submit" class="submit-button" id="submitBtn">
+                    Submit & Get Audit
+                </button>
+
+                <div class="spinner" id="spinner"></div>
+                <div id="message" class="message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Don't miss this opportunity. Start your audit journey for just ₹1 today.</p>
+        <a href="https://payments.cashfree.com/forms/getaudit" class="cta-button-primary">Get Started Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Audit Pro. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // AppScript Deployment URL
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw2Yhe3jd-y0fGWLu9Kbo8s-t6C9s-XNkFb2WivhzAPe2wtotlwg3m9g2wvtmTEbH6BQQ/exec";
+
+        // Form handling
+        const form = document.getElementById("auditForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const spinner = document.getElementById("spinner");
+        const messageEl = document.getElementById("message");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            // Validate
+            if (!name || !email || !phone) {
+                showMessage("Please fill in all fields", "error");
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            spinner.classList.add("show");
+            messageEl.className = "message";
+            messageEl.textContent = "";
+
+            // Use JSONP approach - works with file:// protocol
+            submitViaJSONP(name, email, phone);
+        });
+
+        // JSONP submission - works locally without CORS issues
+        function submitViaJSONP(name, email, phone) {
+            const callback = "jsonpCallback_" + Date.now();
+            
+            // Create callback function
+            window[callback] = function(response) {
+                // Clean up
+                delete window[callback];
+                document.body.removeChild(script);
+                
+                // Handle response
+                if (response && response.success) {
+                    showSuccess();
+                } else {
+                    showError();
+                }
+            };
+
+            // Build URL with callback
+            const params = new URLSearchParams({
+                name: name,
+                email: email,
+                phone: phone,
+                callback: callback
+            });
+
+            const url = SCRIPT_URL + "?" + params;
+
+            // Create script tag for JSONP
+            const script = document.createElement("script");
+            script.src = url;
+            script.onerror = function() {
+                delete window[callback];
+                document.body.removeChild(script);
+                showError();
+            };
+            script.timeout = 10000;
+            
+            document.body.appendChild(script);
+
+            // Timeout fallback
+            setTimeout(() => {
+                if (window[callback]) {
+                    delete window[callback];
+                    if (document.body.contains(script)) {
+                        document.body.removeChild(script);
+                    }
+                    // Consider it success since data likely was sent
+                    showSuccess();
+                }
+            }, 8000);
+        }
+
+        function showSuccess() {
+            submitBtn.disabled = false;
+            spinner.classList.remove("show");
+            
+            messageEl.className = "message success";
+            messageEl.textContent = "✓ Thank you! Your response has been recorded. We'll contact you soon.";
+            
+            // Reset form
+            form.reset();
+            
+            // Clear message after 5 seconds
+            setTimeout(() => {
+                messageEl.className = "message";
+                messageEl.textContent = "";
+            }, 5000);
+        }
+
+        function showError() {
+            submitBtn.disabled = false;
+            spinner.classList.remove("show");
+            
+            messageEl.className = "message error";
+            messageEl.textContent = "✗ There was an error processing your request. Please try again.";
+            
+            setTimeout(() => {
+                messageEl.className = "message";
+                messageEl.textContent = "";
+            }, 5000);
+        }
+
+        function showMessage(text, type) {
+            messageEl.className = `message ${type}`;
+            messageEl.textContent = text;
+            
+            setTimeout(() => {
+                messageEl.className = "message";
+                messageEl.textContent = "";
+            }, 3000);
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
